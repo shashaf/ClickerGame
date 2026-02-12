@@ -27,6 +27,7 @@ namespace ClickerGame.Core
         public int AutoClickPower { get; private set; } = 0;
 
         public int UpgradeCost { get; private set; } = 10;
+        public int AutoClickUpgradeCost { get; private set; } = 300;
 
         private GameState() { } // закрытый конструктор
 
@@ -43,7 +44,12 @@ namespace ClickerGame.Core
         public bool BuyUpgrade()
         {
             if (Score >= UpgradeCost) { 
-                Score = UpgradeCost;
+                if (UpgradeCost >= AutoClickUpgradeCost)
+                {
+                    AutoClickPower++;
+                    AutoClickUpgradeCost *= 2;
+                }
+                Score -= UpgradeCost;
                 ClickPower++;
                 UpgradeCost += 10;
                 return true;
