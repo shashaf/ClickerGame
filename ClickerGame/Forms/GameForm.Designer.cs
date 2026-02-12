@@ -28,12 +28,83 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "GameForm";
+            components = new System.ComponentModel.Container();
+            btnClick = new Button();
+            labelScore = new Label();
+            btnUpgrade = new Button();
+            btnBack = new Button();
+            gameTimer = new System.Windows.Forms.Timer(components);
+            SuspendLayout();
+            // 
+            // btnClick
+            // 
+            btnClick.Font = new Font("Comic Sans MS", 20F);
+            btnClick.Location = new Point(317, 167);
+            btnClick.Name = "btnClick";
+            btnClick.Size = new Size(155, 83);
+            btnClick.TabIndex = 0;
+            btnClick.Text = "Кликай";
+            btnClick.UseVisualStyleBackColor = true;
+            btnClick.Click += btnClick_Click;
+            // 
+            // labelScore
+            // 
+            labelScore.AutoSize = true;
+            labelScore.Font = new Font("Comic Sans MS", 20F);
+            labelScore.Location = new Point(377, 106);
+            labelScore.Name = "labelScore";
+            labelScore.Size = new Size(41, 47);
+            labelScore.TabIndex = 1;
+            labelScore.Text = "0";
+            // 
+            // btnUpgrade
+            // 
+            btnUpgrade.Font = new Font("Comic Sans MS", 9F);
+            btnUpgrade.Location = new Point(349, 272);
+            btnUpgrade.Name = "btnUpgrade";
+            btnUpgrade.Size = new Size(94, 29);
+            btnUpgrade.TabIndex = 2;
+            btnUpgrade.Text = "Улучшить";
+            btnUpgrade.UseVisualStyleBackColor = true;
+            btnUpgrade.Click += btnUpgrade_Click;
+            // 
+            // btnBack
+            // 
+            btnBack.Font = new Font("Comic Sans MS", 9F);
+            btnBack.Location = new Point(655, 12);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(133, 29);
+            btnBack.TabIndex = 2;
+            btnBack.Text = "Назад в меню";
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
+            // 
+            // gameTimer
+            // 
+            gameTimer.Tick += gameTimer_Tick;
+            // 
+            // GameForm
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnBack);
+            Controls.Add(btnUpgrade);
+            Controls.Add(labelScore);
+            Controls.Add(btnClick);
+            Name = "GameForm";
+            Text = "Click Click Click";
+            Load += GameForm_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Button btnClick;
+        private Label labelScore;
+        private Button btnUpgrade;
+        private Button btnBack;
+        private System.Windows.Forms.Timer gameTimer;
     }
 }

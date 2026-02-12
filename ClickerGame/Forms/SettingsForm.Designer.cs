@@ -69,7 +69,7 @@
             Controls.Add(label1);
             Controls.Add(numericClickPower);
             Name = "SettingsForm";
-            Text = "SettingsForm";
+            Text = "Настройки";
             Load += SettingsForm_Load;
             ((System.ComponentModel.ISupportInitialize)numericClickPower).EndInit();
             ResumeLayout(false);
