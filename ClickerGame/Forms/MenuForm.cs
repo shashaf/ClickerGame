@@ -11,9 +11,13 @@ namespace ClickerGame
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            var gameForm = new GameForm();
-            gameForm.Show();
             this.Hide();
+
+            var gameForm = new GameForm();
+            gameForm.FormClosed += (s, args) => this.Show();
+            
+            gameForm.Show();
+            
         }
 
         private void btnSettings_Click(object sender, EventArgs e)

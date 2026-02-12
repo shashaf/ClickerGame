@@ -51,20 +51,20 @@
             // 
             labelScore.AutoSize = true;
             labelScore.Font = new Font("Comic Sans MS", 20F);
-            labelScore.Location = new Point(377, 106);
+            labelScore.Location = new Point(327, 107);
             labelScore.Name = "labelScore";
-            labelScore.Size = new Size(41, 47);
+            labelScore.Size = new Size(145, 47);
             labelScore.TabIndex = 1;
-            labelScore.Text = "0";
+            labelScore.Text = "Очки: 0";
             // 
             // btnUpgrade
             // 
             btnUpgrade.Font = new Font("Comic Sans MS", 9F);
-            btnUpgrade.Location = new Point(349, 272);
+            btnUpgrade.Location = new Point(317, 272);
             btnUpgrade.Name = "btnUpgrade";
-            btnUpgrade.Size = new Size(94, 29);
+            btnUpgrade.Size = new Size(155, 29);
             btnUpgrade.TabIndex = 2;
-            btnUpgrade.Text = "Улучшить";
+            btnUpgrade.Text = "Улучшить: 10";
             btnUpgrade.UseVisualStyleBackColor = true;
             btnUpgrade.Click += btnUpgrade_Click;
             // 
@@ -94,6 +94,7 @@
             Controls.Add(btnClick);
             Name = "GameForm";
             Text = "Click Click Click";
+            FormClosed += GameForm_FormClosed;
             Load += GameForm_Load;
             ResumeLayout(false);
             PerformLayout();

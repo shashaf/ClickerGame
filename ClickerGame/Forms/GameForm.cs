@@ -52,9 +52,12 @@ namespace ClickerGame.Forms
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            var menu = new MenuForm();
-            menu.Show();
             this.Close();
+        }
+
+        private void GameForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Application.Exit();
         }
     }
 }
