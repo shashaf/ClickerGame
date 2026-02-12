@@ -39,10 +39,27 @@ namespace ClickerGame.Forms
         private void btnUpgrade_Click(object sender, EventArgs e)
         {
             if (!GameState.Instance.BuyUpgrade())
-                MessageBox.Show("Недостаточно очков!");
+                ShowMessage("Недостаточно очков!");
 
             UpdateUI();
         }
+
+        private void ShowMessage(string text)
+        {
+            messageTimer.Stop();
+
+            labelMessage.Text = text;
+            labelMessage.Visible = true;
+
+            messageTimer.Start();
+        }
+
+        private void messageTimer_Tick(object sender, EventArgs e)
+        {
+            labelMessage.Visible = false;
+            messageTimer.Stop();
+        }
+
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
@@ -55,9 +72,27 @@ namespace ClickerGame.Forms
             this.Close();
         }
 
+        private bool ConfirmExit()
+        {
+            var result = MessageBox.Show(
+                "Вы уверены, что хотите выйти в меню?\nПрогресс будет утерян.",
+                "Подтверждение",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            return result == DialogResult.Yes;
+        }
+
+
         private void GameForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             // Application.Exit();
+        }
+
+        private void GameForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!ConfirmExit())
+                e.Cancel = true;
         }
     }
 }

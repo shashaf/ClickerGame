@@ -34,6 +34,8 @@
             btnUpgrade = new Button();
             btnBack = new Button();
             gameTimer = new System.Windows.Forms.Timer(components);
+            labelMessage = new Label();
+            messageTimer = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // btnClick
@@ -83,17 +85,35 @@
             // 
             gameTimer.Tick += gameTimer_Tick;
             // 
+            // labelMessage
+            // 
+            labelMessage.AutoSize = true;
+            labelMessage.ForeColor = Color.Red;
+            labelMessage.Location = new Point(320, 415);
+            labelMessage.Name = "labelMessage";
+            labelMessage.Size = new Size(152, 20);
+            labelMessage.TabIndex = 3;
+            labelMessage.Text = "Недостаточно очков";
+            labelMessage.Visible = false;
+            // 
+            // messageTimer
+            // 
+            messageTimer.Interval = 2000;
+            messageTimer.Tick += messageTimer_Tick;
+            // 
             // GameForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(labelMessage);
             Controls.Add(btnBack);
             Controls.Add(btnUpgrade);
             Controls.Add(labelScore);
             Controls.Add(btnClick);
             Name = "GameForm";
             Text = "Click Click Click";
+            FormClosing += GameForm_FormClosing;
             FormClosed += GameForm_FormClosed;
             Load += GameForm_Load;
             ResumeLayout(false);
@@ -107,5 +127,7 @@
         private Button btnUpgrade;
         private Button btnBack;
         private System.Windows.Forms.Timer gameTimer;
+        private Label labelMessage;
+        private System.Windows.Forms.Timer messageTimer;
     }
 }

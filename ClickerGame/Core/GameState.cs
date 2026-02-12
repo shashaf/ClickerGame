@@ -43,19 +43,22 @@ namespace ClickerGame.Core
 
         public bool BuyUpgrade()
         {
-            if (Score >= UpgradeCost) { 
-                if (UpgradeCost >= AutoClickUpgradeCost)
-                {
-                    AutoClickPower++;
-                    AutoClickUpgradeCost *= 2;
-                }
-                Score -= UpgradeCost;
-                ClickPower++;
-                UpgradeCost += 10;
-                return true;
+            if (Score < UpgradeCost)
+                return false;
+
+            Score -= UpgradeCost;
+            ClickPower++;
+            UpgradeCost += 10;
+
+            // Проверяем отдельно покупку автоклика
+            if (Score >= AutoClickUpgradeCost)
+            {
+                Score -= AutoClickUpgradeCost;
+                AutoClickPower++;
+                AutoClickUpgradeCost *= 2;
             }
 
-            return false;
+            return true;
         }
 
         public void Reset()
