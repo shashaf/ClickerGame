@@ -67,6 +67,7 @@ namespace ClickerGame.Core
             ClickPower = 1;
             AutoClickPower = 0;
             UpgradeCost = 10;
+            AutoClickUpgradeCost = 300;
         }
     }
 }
