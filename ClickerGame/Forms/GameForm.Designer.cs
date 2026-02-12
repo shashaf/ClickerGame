@@ -66,7 +66,7 @@
             btnUpgrade.Name = "btnUpgrade";
             btnUpgrade.Size = new Size(155, 29);
             btnUpgrade.TabIndex = 2;
-            btnUpgrade.Text = "Улучшить: 10";
+            btnUpgrade.Text = "Улучшить (10)";
             btnUpgrade.UseVisualStyleBackColor = true;
             btnUpgrade.Click += btnUpgrade_Click;
             // 
