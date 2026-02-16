@@ -87,6 +87,8 @@ namespace ClickerGame.Forms
         private void GameForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             // Application.Exit();
+            GameState.Instance.Reset();
+            UpdateUI();
         }
 
         private void GameForm_FormClosing(object sender, FormClosingEventArgs e)

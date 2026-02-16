@@ -48,16 +48,13 @@ namespace ClickerGame.Core
 
             Score -= UpgradeCost;
             ClickPower++;
-            UpgradeCost += 10;
-
             // Проверяем отдельно покупку автоклика
-            if (Score >= AutoClickUpgradeCost)
+            if (UpgradeCost >= AutoClickUpgradeCost)
             {
-                Score -= AutoClickUpgradeCost;
                 AutoClickPower++;
                 AutoClickUpgradeCost *= 2;
             }
-
+            UpgradeCost += 10;
             return true;
         }
 
